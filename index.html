@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVORARE - Massas Artesanais Gourmet | Premium Handcrafted Pasta</title>
+    <!-- SEO Otimizado -->
+    <meta name="description" content="DEVORARE - Massas Artesanais Gourmet em São Paulo. Tradição italiana com frescor premium. Peça agora!">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.devorare.com.br/">
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dtgcobo29/image/upload/v1764385311/Design_sem_nome_8_rplrtq.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"DEVORARE - Massas Artesanais Gourmet","url":"https://www.devorare.com.br/","address":{"@type":"PostalAddress","streetAddress":"Rua Garcia Lorca, 39","addressLocality":"São Paulo","addressRegion":"SP","postalCode":"05632-000","addressCountry":"BR"},"telephone":"+551137420762"}</script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght%40300;400;700&display=swap" rel="stylesheet">
+    <!-- Música de fundo - Nota: Para melhor compatibilidade, considere converter para MP3 -->
+    <audio id="background-music" src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764788622/devorare-musica-chef-italiano_cnfkjj.mp4" loop preload="metadata"></audio>
+    <style>
+        /* Variáveis CSS */
+        :root{--gold:#D4AF37;--dark:#1a1a1a;--cream:#F5F1E8;--green:#2d5016;--gray:#4a4a4a;--light-gray:#f8f8f8;}
+        /* Reset e Base */
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Roboto',sans-serif;color:var(--gray);line-height:1.6;background-color:var(--light-gray);scroll-behavior:smooth;}
+        /* Utilitários */
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+        .section-title{font-family:'Playfair Display',serif;font-size:42px;color:var(--dark);margin-bottom:50px;text-align:center;font-weight:700;letter-spacing:1px;}
+        .section-title strong{color:var(--gold);}
+        .cta-button{display:inline-block;background:var(--gold);color:var(--dark);padding:16px 50px;text-decoration:none;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:13px;transition:all 0.3s ease;border:2px solid var(--gold);cursor:pointer;border-radius:2px;}
+        .cta-button:hover{background:transparent;color:var(--gold);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,175,55,0.3);}
+        /* HEADER */
+        header{background:linear-gradient(135deg,var(--dark) 0%,#2a2a2a 100%);padding:12px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+        .header-container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 20px;}
+        .nav-menu{display:flex;gap:30px;}
+        .nav-menu a{color:#fff;text-decoration:none;font-weight:400;font-size:15px;transition:color 0.3s ease;}
+        .nav-menu a:hover{color:var(--gold);}
+        .contact-header{display:flex;gap:20px;align-items:center;}
+        .contact-item{color:#fff;font-size:13px;text-align:right;}
+        .contact-item strong{color:var(--gold);display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;}
+        /* Header WhatsApp Button */
+        .header-whatsapp-button{display:inline-flex;align-items:center;background:var(--gold);color:var(--dark);padding:8px 15px;text-decoration:none;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:11px;transition:all 0.3s ease;border:2px solid var(--gold);cursor:pointer;border-radius:2px;margin-left:20px;}
+        .header-whatsapp-button:hover{background:transparent;color:var(--gold);transform:translateY(-1px);box-shadow:0 5px 15px rgba(212,175,55,0.3);}
+        /* Hamburger Menu */
+        .hamburger{display:none;flex-direction:column;cursor:pointer;gap:6px;}
+        .hamburger span{width:25px;height:3px;background-color:#fff;border-radius:2px;transition:all 0.3s ease;}
+        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(10px,10px);}
+        .hamburger.active span:nth-child(2){opacity:0;}
+        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
+        /* Sound Control Styles */
+        .sound-control{display:flex;align-items:center;gap:8px;margin-right:20px;}
+        .sound-button{background:transparent;border:2px solid var(--gold);border-radius:50%;width:40px;height:40px;display:flex;justify-content:center;align-items:center;cursor:pointer;transition:all 0.3s ease;padding:0;flex-shrink:0;}
+        .sound-button:hover{background:rgba(212,175,55,0.1);}
+        .sound-button svg{color:var(--gold);transition:opacity 0.3s ease;}
+        .sound-button.muted svg{opacity:0.5;}
+        .sound-label{color:var(--gold);font-weight:600;font-size:13px;white-space:nowrap;}
+        /* HERO */
+        .hero{color:#fff;padding:150px 20px;text-align:center;position:relative;overflow:hidden;min-height:500px;display:flex;align-items:center;justify-content:center;}
+        .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:1;}
+        .hero-content{max-width:800px;margin:0 auto;position:relative;z-index:2;}
+        /* Logo na Hero Section */
+        .hero-logo{position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:216px;height:auto;z-index:3;filter:drop-shadow(0 0 5px rgba(0,0,0,0.5));}
+        .hero h1{font-family:'Playfair Display',serif;font-size:60px;margin-bottom:20px;font-weight:700;letter-spacing:2px;line-height:1.2;}
+        .hero h1 strong{color:var(--gold);}
+        .hero-subtitle{font-size:20px;margin-bottom:40px;color:#ddd;font-weight:300;letter-spacing:1px;}
+        /* ABOUT SECTION */
+        .about-section{padding:80px 20px;background-color:var(--cream);}
+        .about-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+        .about-text h3{font-family:'Playfair Display',serif;font-size:28px;color:var(--dark);margin-bottom:20px;font-weight:700;}
+        .about-text p{font-size:16px;color:var(--gray);margin-bottom:15px;line-height:1.8;}
+        .about-text ul{list-style:none;margin-top:25px;}
+        .about-text li{padding:10px 0;padding-left:30px;position:relative;color:var(--gray);font-size:15px;}
+        .about-text li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700;font-size:18px;}
+        .about-image img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.1);}
+        /* PORTFOLIO SECTION */
+        .portfolio-section{padding:80px 20px;background-color:var(--cream);}
+        .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:50px;}
+        .portfolio-card{background:#fff;padding:30px;border-radius:8px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid var(--gold);transition:all 0.3s ease;display:flex;flex-direction:column;align-items:center;}
+        .portfolio-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,0.15);border-color:var(--dark);}
+        .portfolio-icon{font-size:48px;margin-bottom:15px;}
+        .portfolio-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:10px;font-weight:700;}
+        .portfolio-card p{font-size:15px;color:var(--gray);line-height:1.6;}
+        .portfolio-card .product-count{font-size:13px;color:var(--gold);font-weight:600;margin-top:10px;}
+        /* DIFFERENTIALS SECTION */
+        .differentials-section{background:linear-gradient(135deg,var(--dark) 0%,var(--green) 100%);color:#fff;padding:80px 20px;}
+        .differentials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-top:50px;}
+        .differential-card{text-align:center;padding:30px;border:1px solid rgba(212,175,55,0.3);border-radius:8px;transition:all 0.3s ease;}
+        .differential-card:hover{background:rgba(212,175,55,0.1);border-color:var(--gold);transform:translateY(-5px);}
+        .differential-icon{font-size:48px;margin-bottom:20px;}
+        .differential-card h3{font-size:18px;margin-bottom:15px;color:var(--gold);font-weight:600;}
+        .differential-card p{font-size:14px;color:#ddd;line-height:1.6;}
+        /* PROCESS SECTION - Adaptações para Mídia nos Steps */
+        .process-section{padding:80px 20px;background:var(--cream);}
+        .process-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-top:50px;position:relative;}
+        .process-step{background:#fff;padding:30px;border-radius:8px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid var(--gold);display:flex;flex-direction:column;align-items:center;position:relative;}
+        /* Container para Mídia nos Steps - Similar ao Portfolio */
+        .step-media.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:200px;} /* min-height: 200px adicionado aqui */
+        .step-media.video-container video,.step-media.video-container img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+        .step-number{font-family:'Playfair Display',serif;font-size:36px;color:var(--gold);font-weight:700;margin-bottom:15px;}
+        .process-step h3{font-size:16px;color:var(--dark);margin-bottom:10px;font-weight:600;}
+        .process-step p{font-size:13px;color:var(--gray);line-height:1.6;}
+        /* CONTACT SECTION */
+        .contact-section{background:linear-gradient(135deg,var(--dark) 0%,var(--green) 100%);color:#fff;padding:80px 20px;}
+        .contact-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+        .contact-info h3{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:30px;color:var(--gold);font-weight:700;}
+        .contact-info-item{margin-bottom:25px;}
+        .contact-info-item strong{display:block;color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+        .contact-info-item p{font-size:16px;color:#ddd;line-height:1.8;}
+        .contact-info-item a{color:var(--gold);text-decoration:none;transition:all 0.3s ease;}
+        .contact-info-item a:hover{text-decoration:underline;}
+        .social-icons{margin-top:20px;display:flex;gap:15px;}
+        .social-icons a{color:var(--gold);font-size:24px;transition:color 0.3s ease;}
+        .social-icons a:hover{color:#fff;}
+        .contact-form{background:rgba(255,255,255,0.05);padding:40px;border-radius:8px;border:1px solid rgba(212,175,55,0.2);}
+        .contact-form h3{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:25px;color:var(--gold);font-weight:700;}
+        .form-group{margin-bottom:20px;}
+        .form-group label{display:block;font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:600;}
+        .form-group input,.form-group textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,0.1);border:1px solid rgba(212,175,55,0.3);color:#fff;border-radius:4px;font-family:inherit;font-size:14px;transition:all 0.3s ease;}
+        .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.5);}
+        .form-group input:focus,.form-group textarea:focus{outline:none;background:rgba(255,255,255,0.15);border-color:var(--gold);box-shadow:0 0 10px rgba(212,175,55,0.2);}
+        .form-group textarea{resize:vertical;min-height:100px;}
+        .form-submit{width:100%;background:var(--gold);color:var(--dark);padding:14px;border:none;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:12px;cursor:pointer;transition:all 0.3s ease;}
+        .form-submit:hover{background:#e8c547;transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,175,55,0.3);}
+        /* FOOTER */
+        footer{background:#0a0a0a;color:#999;padding:40px 20px;text-align:center;font-size:13px;border-top:1px solid rgba(212,175,55,0.2);}
+        footer p{margin-bottom:10px;}
+        footer strong{color:var(--gold);}
+        /* RESPONSIVIDADE - Versão Corrigida para Mobile */
+        @media (max-width: 1024px){
+            .about-content{grid-template-columns:1fr;gap:40px;}
+            .step-media.video-container{min-height:150px;} /* min-height: 150px para mobile/tablet */
+        }
+        @media (max-width: 768px){
+            /* HEADER MOBILE - Touch-Friendly */
+            header{padding:12px 0;}
+            .header-container{justify-content:space-between;align-items:center;padding:0 15px;}
+            .nav-menu{display:none;flex-direction:column;position:fixed;top:0;right:-100%;width:80%;max-width:280px;height:100vh;background:var(--dark);padding-top:80px;transition:right 0.3s ease-in-out;z-index:999;box-shadow:-5px 0 15px rgba(0,0,0,0.3);overflow-y:auto;}
+            .nav-menu.active-mobile-menu{display:flex;right:0;}
+            .nav-menu.active-mobile-menu a{padding:20px 25px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1);width:100%;color:#fff;font-size:18px;}
+            .contact-header .contact-item{display:none;}
+            .header-whatsapp-button{margin-left:0;padding:12px 20px;font-size:12px;min-height:44px;display:flex;align-items:center;justify-content:center;}
+            .hamburger{display:flex;padding:5px;}
+            .sound-control{margin-right:10px;}
+            .sound-label{display:none;}
+            .sound-button{width:44px;height:44px;min-height:44px;}
+            body.menu-open{overflow-x:hidden;}
+            /* HERO MOBILE - Mais Compacto */
+            .hero{min-height:100vh;padding:100px 15px 50px;display:flex;flex-direction:column;justify-content:center;}
+            .hero-logo{position:relative;top:auto;left:auto;width:210px;transform:none;margin:0 auto 20px;z-index:3;} /* Logo 50% maior no mobile */
+            .hero h1{font-size:40px;margin-bottom:15px;}
+            .hero-subtitle{font-size:18px;margin-bottom:30px;}
+            .section-title{font-size:32px;margin-bottom:30px;}
+            /* ABOUT, PORTFOLIO, PROCESS - Vídeos Responsivos */
+            .about-section,.portfolio-section,.process-section,.differentials-section{padding:60px 15px;}
+            .portfolio-grid,.process-timeline,.differentials-grid{grid-template-columns:repeat(auto-fit,minmax(100%,1fr));gap:25px;margin-top:30px;}
+            .portfolio-card,.process-step,.differential-card{padding:25px;min-height:auto;}
+            /* VÍDEOS CORRIGIDOS - Aspect-Ratio para Sem Distorção */
+            .step-media.video-container,.portfolio-icon.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:8px;display:flex;justify-content:center;align-items:center;background-color:#000;}
+            .step-media.video-container video,.step-media.video-container img,.portfolio-icon.video-container video{width:100%;height:100%;object-fit:cover;border-radius:8px;}
+            .step-number{font-size:32px;}
+            .process-step h3{font-size:16px;}
+            .process-step p{font-size:14px;}
+            /* CONTACT MOBILE - Formulário Otimizado */
+            .contact-content{grid-template-columns:1fr;gap:40px;}
+            .contact-form{padding:30px;}
+            .form-group label{font-size:14px;}
+            .form-group input,.form-group textarea{padding:15px;font-size:16px;min-height:48px;}
+            .form-group textarea{min-height:120px;}
+            .cta-button,.form-submit{padding:15px 30px;font-size:14px;min-height:48px;}
+            /* Linha Conectando Steps (Inovação Visual) */
+            .process-timeline::before{content:'';position:absolute;top:50%;left:10%;right:10%;height:2px;background:linear-gradient(to right,var(--gold),transparent);z-index:-1;transform:translateY(-50%);}
+            footer{padding:40px 15px;font-size:14px;}
+        }
+        @media (max-width: 480px){
+            /* Ajustes Finos para Telas Pequenas */
+            .hero{padding:80px 10px 40px;}
+            .hero h1{font-size:32px;}
+            .hero-subtitle{font-size:16px;}
+            .section-title{font-size:28px;}
+            .portfolio-grid,.process-timeline{gap:20px;}
+            .step-media.video-container,.portfolio-icon.video-container{aspect-ratio:4/3;}
+            .contact-form{padding:25px;}
+            .form-group input,.form-group textarea{padding:12px;font-size:16px;}
+            /* Floating CTA Inovador para Mobile (aplicado ao botão principal) */
+            .cta-button.hero-cta{position:fixed;bottom:20px;right:20px;z-index:100;padding:15px 25px;border-radius:50px;box-shadow:0 4px 20px rgba(212,175,55,0.3);font-size:12px;}
+            /* Esconde fixed CTA em desktop */
+            @media (min-width: 769px){.cta-button.hero-cta{position:static;}}
+        }
+        /* CSS para Vídeos no Portfolio (Mantido para consistência) */
+        .portfolio-icon.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;}
+        .portfolio-icon.video-container video{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+        /* Desktop-specific min-height for process videos */
+        @media (min-width: 1025px){.step-media.video-container{min-height:220px;}} /* min-height: 220px para desktop */
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <nav class="nav-menu">
+            <a href="#hero">Início</a>
+            <a href="#about">Sobre</a>
+            <a href="#portfolio-produtos">Produtos</a>
+            <a href="#contact">Contato</a>
+        </nav>
+        <div class="contact-header">
+            <!-- Sound Control -->
+            <div class="sound-control">
+                <button id="sound-toggle" class="sound-button" aria-label="Toggle sound">
+                    <svg id="speaker-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                </button>
+                <span id="sound-label" class="sound-label">Ligue o som</span>
+            </div>
+            <div class="contact-item">
+                <strong>Telefone</strong>
+                (11) 3742-0762
+            </div>
+            <div class="contact-item">
+                <strong>WhatsApp</strong>
+                (11) 97216-0421
+            </div>
+            <a href="https://wa.me/5511972160421?text=Olá, preciso de um orçamento!" target="_blank" class="header-whatsapp-button">
+                Receber Orçamento
+            </a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="none">
+        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764954447/devorare-hero40-otimizado_onbwcd.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+    </video>
+    <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1764385311/Design_sem_nome_8_rplrtq.png" alt="DEVORARE Logo" class="hero-logo">
+    <div class="hero-content">
+        <h1>A Arte da Massa <strong>Artesanal</strong></h1>
+        <p class="hero-subtitle">Tradição italiana e ingredientes frescos, transformados em experiências gastronômicas inesquecíveis.</p>
+        <a href="#portfolio-produtos" class="cta-button hero-cta">Descubra Nossos Produtos</a>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about-section" id="about">
+    <div class="container">
+        <h2 class="section-title">Sobre a <strong>DEVORARE</strong></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Tradição Italiana, Excelência Brasileira</h3>
+                <p>A DEVORARE nasce da paixão por massas artesanais autênticas, combinando técnicas italianas centenárias com ingredientes selecionados e um comprometimento inabalável com a qualidade.</p>
+                <p>Cada massa é cuidadosamente elaborada em pequenos lotes, garantindo sabor, textura e frescor incomparáveis. Não fazemos concessões. Fazemos arte.</p>
+                <ul>
+                    <li>100% Artesanal - Feito à mão com dedicação</li>
+                    <li>Ingredientes Premium - Selecionados com rigor</li>
+                    <li>Sem Conservantes - Frescor garantido</li>
+                    <li>Entrega Rápida - Direto para sua mesa</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1764381387/massa2_ecqvfd.png" alt="Massas Artesanais DEVORARE">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section class="portfolio-section" id="portfolio-produtos">
+    <div class="container">
+        <h2 class="section-title">Nossa Coleção <strong>Premium</strong></h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card" id="massas-recheadas-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764954931/devorare-massasrecheadas-otimizado_es0enp.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Massas Recheadas</h3>
+                <p>Capeletti, Ravioli, Panquecas, Rondelle com recheios variados.</p>
+                <span class="product-count">4+ formatos</span>
+            </div>
+            <div class="portfolio-card" id="recheios-especiais-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764955427/devorare-RecheiosEspeciais-otimizado_rvafrp.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Recheios Especiais</h3>
+                <p>Brie, Búfala, Queijos Premium, Presunto de Parma, Ricota, Roquefort.</p>
+                <span class="product-count">30+ variedades gourmet</span>
+            </div>
+            <div class="portfolio-card" id="frango-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764955363/devorare-frango_-otimizado_tkccxg.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Frango</h3>
+                <p>Capeletti, Mini Capeletti, Panqueca, Ravioli, Frango simples e com complementos.</p>
+                <span class="product-count">9 variedades</span>
+            </div>
+            <div class="portfolio-card" id="carne-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764954981/devorare-carne-otimizado_d82fzi.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Carne</h3>
+                <p>Capeletti, Mini Capeletti, Panqueca, Ravioli.</p>
+                <span class="product-count">4 variedades</span>
+            </div>
+            <div class="portfolio-card" id="frios-e-queijos-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764955103/devorare-friosequeijos_-otimizado_aund3c.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Frios & Queijos</h3>
+                <p>Mussarela, Queijos diversos, Presunto, Canellone.</p>
+                <span class="product-count">15 variedades</span>
+            </div>
+            <div class="portfolio-card" id="pescados-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764955153/devorare-pescados-otimizado_jrwy6g.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Pescados</h3>
+                <p>Bacalhau, Camarão, Lagostim, Salmão com variações.</p>
+                <span class="product-count">6 variedades</span>
+            </div>
+            <div class="portfolio-card" id="legumes-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764955053/devorare-legumes_-otimizado_xxglml.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Legumes</h3>
+                <p>Alcachofra, Berinjela, Brócolis, Palmito, Mix de Cogumelos.</p>
+                <span class="product-count">15 variedades</span>
+            </div>
+            <div class="portfolio-card" id="nhoques-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764954630/devorare-nhoque-otimizados_d0uvwi.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Nhoques</h3>
+                <p>Batata, Batata Doce, Mandioquinha, Zucca, Milho Vegano.</p>
+                <span class="product-count">8 variedades</span>
+            </div>
+            <div class="portfolio-card" id="massas-sem-recheio-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764954586/devorare-MassasSemRecheio-otimizado_mstvt1.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Massas Sem Recheio</h3>
+                <p>Spaghetti, Tagliatelle, Penne, Fusilli, Farfalle, Fettuccine, Linguini.</p>
+                <span class="product-count">8 tipos</span>
+            </div>
+            <div class="portfolio-card" id="molhos-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764954513/devorare-molhos-otimizado_zikcdx.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Molhos</h3>
+                <p>Sugo, Pomodoro, Bolonhesa, Branco, Queijos, Pesto, Ervas Finas.</p>
+                <span class="product-count">11 variedades</span>
+            </div>
+            <div class="portfolio-card" id="lasanhas-card">
+                <div class="portfolio-icon video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764954552/devorare-lasanha_-otimizado_ukedw7.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <h3>Lasanhas</h3>
+                <p>Massa Branca, Massa Verde, Massa de Pastel, Lasanha Bolonhesa.</p>
+                <span class="product-count">4 variedades</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DIFFERENTIALS SECTION -->
+<section class="differentials-section">
+    <div class="container">
+        <h2 class="section-title" style="color: #fff;">Por Que Escolher <strong>DEVORARE</strong></h2>
+        <div class="differentials-grid">
+            <div class="differential-card">
+                <div class="differential-icon">🎨</div>
+                <h3>Artesanal 100%</h3>
+                <p>Cada massa é feita à mão, em pequenos lotes, com atenção obsessiva aos detalhes.</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">🌿</div>
+                <h3>Ingredientes Premium</h3>
+                <p>Selecionamos apenas os melhores: ovos frescos, trigos nobres, ingredientes orgânicos.</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">⚡</div>
+                <h3>Frescor Garantido</h3>
+                <p>Sem conservantes. Produzido sob demanda. Entrega rápida para sua mesa.</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">👨‍🍳</div>
+                <h3>Técnica Italiana</h3>
+                <p>Métodos tradicionais italianos combinados com inovação e criatividade.</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">🏆</div>
+                <h3>Qualidade Certificada</h3>
+                <p>Padrões internacionais de higiene e qualidade em cada etapa da produção.</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">🚚</div>
+                <h3>Entrega Ágil</h3>
+                <p>Logística eficiente para São Paulo e região. Seu pedido chega fresco.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process-section">
+    <div class="container">
+        <h2 class="section-title">Nosso Processo <strong>Artesanal</strong></h2>
+        <div class="process-timeline">
+            <!-- Step 01: Vídeo -->
+            <div class="process-step" id="process-01-selecao">
+                <div class="step-media video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764962000/1-selecao-otimizado_trg2f2.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                                       </video>
+                </div>
+                <div class="step-number">01</div>
+                <h3>Seleção</h3>
+                <p>Ingredientes premium escolhidos com rigor. Qualidade desde a origem.</p>
+            </div>
+            <!-- Step 02: Vídeo -->
+            <div class="process-step" id="process-02-preparacao">
+                <div class="step-media video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764968742/2-prepara%C3%A7%C3%A3o-otimizado_n7ixcu.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <div class="step-number">02</div>
+                <h3>Preparação</h3>
+                <p>Receitas tradicionais italianas adaptadas com criatividade brasileira.</p>
+            </div>
+            <!-- Step 03: Vídeo -->
+            <div class="process-step" id="process-03-moldagem">
+                <div class="step-media video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764962460/3-feitoamao-otimizado_ahweax.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <div class="step-number">03</div>
+                <h3>Moldagem</h3>
+                <p>Cada massa é moldada à mão, garantindo textura e formato perfeitos.</p>
+            </div>
+            <!-- Step 04: Vídeo -->
+            <div class="process-step" id="process-04-controle">
+                <div class="step-media video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764962467/4-controle-otimizado_ldozna.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <div class="step-number">04</div>
+                <h3>Controle</h3>
+                <p>Rigoroso controle de qualidade em cada etapa da produção.</p>
+            </div>
+            <!-- Step 05: VÍDEO (Substituído) -->
+            <div class="process-step" id="process-05-embalagem">
+                <div class="step-media video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764968765/5-embalagem-otimizado_s8ywjy.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <div class="step-number">05</div>
+                <h3>Embalagem</h3>
+                <p>Embalagem premium que preserva frescor e qualidade do produto.</p>
+            </div>
+            <!-- Step 06: VÍDEO (Substituído) -->
+            <div class="process-step" id="process-06-entrega">
+                <div class="step-media video-container">
+                    <video muted loop playsinline preload="none">
+                        <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764968776/6-entrega-otimizado_sx2kgx.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <div class="step-number">06</div>
+                <h3>Entrega</h3>
+                <p>Entrega rápida para sua mesa. Frescor garantido em cada pedido.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <h2 class="section-title" style="color: #fff;">Entre em <strong>Contato</strong></h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Informações de Contato</h3>
+                
+                <div class="contact-info-item">
+                    <strong>Endereço</strong>
+                    <p>Rua Garcia Lorca, 39<br>Vila Sônia - São Paulo/SP</p>
+                </div>
+
+                <div class="contact-info-item">
+                    <strong>Telefone</strong>
+                    <p><a href="tel:+551137420762">(11) 3742-0762</a><br>
+                    <a href="tel:+551137720553">(11) 3772-0553</a></p>
+                </div>
+
+                <div class="contact-info-item">
+                    <strong>WhatsApp</strong>
+                    <p><a href="https://wa.me/5511972160421" target="_blank">(11) 97216-0421</a></p>
+                </div>
+
+                <div class="contact-info-item">
+                    <strong>Email</strong>
+                    <p><a href="mailto:Jlemassasdevorare@gmail.com">Jlemassasdevorare@gmail.com</a></p>
+                </div>
+
+                <div class="contact-info-item">
+                    <strong>CNPJ</strong>
+                    <p>48.686.191/0001-13</p>
+                </div>
+
+                <div class="contact-info-item">
+                    <strong>Inscrição Estadual</strong>
+                    <p>138.228.542.110</p>
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/massadevorare?igsh=MXRhcmw1cHFudWJ5MQ==" target="_blank" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Solicite um Orçamento</h3>
+                <form action="https://formsubmit.co/Jlemassasdevorare@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Nova Solicitação de Orçamento DEVORARE!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="box">
+
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="Nome" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email" required placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="Telefone" required placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa/Estabelecimento</label>
+                        <input type="text" id="empresa" name="Empresa" placeholder="Nome da empresa">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="Mensagem" required placeholder="Descreva seu interesse em nossos produtos..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Enviar Solicitação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 <strong>DEVORARE</strong> - Massas Artesanais Gourmet. Todos os direitos reservados.</p>
+    <p>JLE Massas Artesanais e Gourmet LTDA | CNPJ: 48.686.191/0001-13</p>
+    <p>Rua Garcia Lorca, 39 - Vila Sônia - São Paulo/SP</p>
+</footer>
+
+<script>
+    // Hamburger Menu e Scroll Suave
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active-mobile-menu');
+        document.body.classList.toggle('menu-open'); // Adiciona classe para overflow control
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active-mobile-menu');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navMenu.contains(event.target) && !hamburger.contains(event.target) && navMenu.classList.contains('active-mobile-menu')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active-mobile-menu');
+            document.body.classList.remove('menu-open');
+        }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Controle de Som
+    const backgroundMusic = document.getElementById('background-music');
+    const soundToggleButton = document.getElementById('sound-toggle');
+    const soundLabel = document.getElementById('sound-label');
+
+    let isMuted = localStorage.getItem('isMuted') === 'true';
+
+    function updateSoundUI() {
+        if (isMuted) {
+            backgroundMusic.muted = true;
+            soundToggleButton.classList.add('muted');
+            soundLabel.textContent = 'Ligue o som';
+        } else {
+            backgroundMusic.muted = false;
+            soundToggleButton.classList.remove('muted');
+            soundLabel.textContent = 'Desligue o som';
+        }
+    }
+
+    updateSoundUI();
+
+    if (!isMuted) {
+        backgroundMusic.play().catch(error => {
+            console.log("Autoplay de áudio bloqueado - interação necessária:", error);
+            isMuted = true;
+            localStorage.setItem('isMuted', 'true');
+            updateSoundUI();
+        });
+    }
+
+    soundToggleButton.addEventListener('click', () => {
+        isMuted = !isMuted;
+        localStorage.setItem('isMuted', isMuted);
+
+        if (!isMuted) {
+            backgroundMusic.play().catch(error => {
+                console.error("Erro ao tocar áudio:", error);
+                isMuted = true;
+                localStorage.setItem('isMuted', 'true');
+                updateSoundUI();
+            });
+        } else {
+            backgroundMusic.pause();
+        }
+        updateSoundUI();
+    });
+
+    backgroundMusic.addEventListener('pause', () => {
+        if (!backgroundMusic.muted && !isMuted) {
+            isMuted = true;
+            localStorage.setItem('isMuted', 'true');
+            updateSoundUI();
+        }
+    });
+
+    backgroundMusic.addEventListener('play', () => {
+        if (backgroundMusic.muted && isMuted) {
+            isMuted = false;
+            localStorage.setItem('isMuted', 'false');
+            updateSoundUI();
+        }
+    });
+
+    // Lazy Loading para Vídeos Mobile (Performance Otimizada)
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('video').forEach(video => {
+            video.loading = 'lazy';
+            video.preload = 'none'; // Carrega só no scroll
+        });
+    }
+
+    // Função para Intersection Observer dos Vídeos (Threshold Ajustado para Mobile)
+    function setupVideoObserver(cardId, videoUrl) {
+        const card = document.getElementById(cardId);
+        if (!card) {
+            console.warn(`Card com ID '${cardId}' não encontrado.`);
+            return;
+        }
+        const videoElement = card.querySelector('video');
+        if (!videoElement) {
+            console.warn(`Elemento de vídeo não encontrado no card com ID '${cardId}'.`);
+            return;
+        }
+
+        // Atualiza a URL do vídeo, caso seja diferente
+        const currentSource = videoElement.querySelector('source');
+        if (currentSource && currentSource.src !== videoUrl) {
+            currentSource.src = videoUrl;
+            videoElement.load(); // Recarrega o vídeo com a nova fonte
+        } else if (!currentSource) {
+             // Se não houver source, adiciona
+            const newSource = document.createElement('source');
+            newSource.src = videoUrl;
+            newSource.type = 'video/mp4';
+            videoElement.appendChild(newSource);
+            videoElement.load();
+        }
+
+        const observerOptions = {
+            root: null, // viewport as the root
+            rootMargin: '0px',
+            threshold: window.innerWidth <= 768 ? 0.3 : 0.5 // 30% em mobile para performance
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    videoElement.play().catch(error => {
+                        console.log(`Não foi possível iniciar o autoplay do vídeo para ${cardId}:`, error);
+                    });
+                } else {
+                    videoElement.pause();
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(card);
+    }
+
+    // Observers para Portfolio (11 cards)
+    setupVideoObserver('massas-recheadas-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764954931/devorare-massasrecheadas-otimizado_es0enp.mp4');
+    setupVideoObserver('recheios-especiais-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764955427/devorare-RecheiosEspeciais-otimizado_rvafrp.mp4');
+    setupVideoObserver('frango-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764955363/devorare-frango_-otimizado_tkccxg.mp4');
+    setupVideoObserver('carne-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764954981/devorare-carne-otimizado_d82fzi.mp4');
+    setupVideoObserver('frios-e-queijos-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764955103/devorare-friosequeijos_-otimizado_aund3c.mp4');
+    setupVideoObserver('pescados-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764955153/devorare-pescados-otimizado_jrwy6g.mp4');
+    setupVideoObserver('legumes-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764955053/devorare-legumes_-otimizado_xxglml.mp4');
+    setupVideoObserver('nhoques-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764954630/devorare-nhoque-otimizados_d0uvwi.mp4');
+    setupVideoObserver('massas-sem-recheio-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764954586/devorare-MassasSemRecheio-otimizado_mstvt1.mp4');
+    setupVideoObserver('molhos-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764954513/devorare-molhos-otimizado_zikcdx.mp4');
+    setupVideoObserver('lasanhas-card', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764954552/devorare-lasanha_-otimizado_ukedw7.mp4');
+
+    // Observers para Process Steps (6 steps com vídeos)
+    setupVideoObserver('process-01-selecao', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764962000/1-selecao-otimizado_trg2f2.mp4');
+    setupVideoObserver('process-02-preparacao', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764968742/2-prepara%C3%A7%C3%A3o-otimizado_n7ixcu.mp4');
+    setupVideoObserver('process-03-moldagem', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764962460/3-feitoamao-otimizado_ahweax.mp4');
+    setupVideoObserver('process-04-controle', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764962467/4-controle-otimizado_ldozna.mp4');
+    setupVideoObserver('process-05-embalagem', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764968765/5-embalagem-otimizado_s8ywjy.mp4');
+    setupVideoObserver('process-06-entrega', 'https://res.cloudinary.com/dtgcobo29/video/upload/v1764968776/6-entrega-otimizado_sx2kgx.mp4');
+</script>
+
+</body>
+</html>
