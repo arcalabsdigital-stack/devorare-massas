@@ -78,20 +78,21 @@
         .portfolio-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:10px;font-weight:700;}
         .portfolio-card p{font-size:15px;color:var(--gray);line-height:1.6;}
         .portfolio-card .product-count{font-size:13px;color:var(--gold);font-weight:600;margin-top:10px;}
-        /* DIFFERENTIALS SECTION */
+        /* DIFFERENTIALS SECTION - Ajustes para Imagens Maiores e Horizontais */
         .differentials-section{background:linear-gradient(135deg,var(--dark) 0%,var(--green) 100%);color:#fff;padding:80px 20px;}
         .differentials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-top:50px;}
         .differential-card{text-align:center;padding:30px;border:1px solid rgba(212,175,55,0.3);border-radius:8px;transition:all 0.3s ease;}
         .differential-card:hover{background:rgba(212,175,55,0.1);border-color:var(--gold);transform:translateY(-5px);}
-        .differential-icon{font-size:48px;margin-bottom:20px;}
+        .differential-icon{display: flex; justify-content: center; align-items: center; width: 80px; height: 80px; margin: 0 auto 20px auto; aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; background: rgba(255,255,255,0.1);}
+        .differential-icon img {width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 8px;}
         .differential-card h3{font-size:18px;margin-bottom:15px;color:var(--gold);font-weight:600;}
         .differential-card p{font-size:14px;color:#ddd;line-height:1.6;}
-        /* PROCESS SECTION - Adaptações para Mídia nos Steps */
+        /* PROCESS SECTION - Responsividade Ajustada e Altura Aumentada */
         .process-section{padding:80px 20px;background:var(--cream);}
-        .process-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-top:50px;position:relative;}
-        .process-step{background:#fff;padding:30px;border-radius:8px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid var(--gold);display:flex;flex-direction:column;align-items:center;position:relative;}
-        /* Container para Mídia nos Steps - Similar ao Portfolio */
-        .step-media.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:200px;} /* min-height: 200px adicionado aqui */
+        .process-timeline{display:grid;gap:30px;margin-top:50px;position:relative;overflow: hidden;}
+        .process-step{background:#fff;padding:30px;border-radius:8px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid var(--gold);display:flex;flex-direction:column;align-items:center;position:relative;overflow: hidden;}
+        /* Container para Mídia nos Steps - Altura Aumentada */
+        .step-media.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:250px;}
         .step-media.video-container video,.step-media.video-container img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
         .step-number{font-family:'Playfair Display',serif;font-size:36px;color:var(--gold);font-weight:700;margin-bottom:15px;}
         .process-step h3{font-size:16px;color:var(--dark);margin-bottom:10px;font-weight:600;}
@@ -122,10 +123,20 @@
         footer{background:#0a0a0a;color:#999;padding:40px 20px;text-align:center;font-size:13px;border-top:1px solid rgba(212,175,55,0.2);}
         footer p{margin-bottom:10px;}
         footer strong{color:var(--gold);}
-        /* RESPONSIVIDADE - Versão Corrigida para Mobile */
-        @media (max-width: 1024px){
+        /* RESPONSIVIDADE - Ajustes para Process e Differentials */
+        @media (min-width: 1201px) {
+            .process-timeline { grid-template-columns: repeat(6, 1fr); gap: 20px; } /* 6x1 em telas grandes, sem overflow */
+        }
+        @media (min-width: 1025px) and (max-width: 1200px) {
+            .process-timeline { grid-template-columns: repeat(3, 1fr); gap: 25px; } /* 3x1 em desktop médio */
+            .step-media.video-container { min-height: 250px; } /* Altura desktop */
+        }
+        @media (max-width: 1024px) {
             .about-content{grid-template-columns:1fr;gap:40px;}
-            .step-media.video-container{min-height:150px;} /* min-height: 150px para mobile/tablet */
+            .process-timeline { grid-template-columns: repeat(2, 1fr); gap: 20px; } /* 2x1 em tablet */
+            .step-media.video-container { min-height: 200px; } /* Altura tablet */
+            .differentials-grid { gap: 30px; }
+            .differential-icon { width: 70px; height: 70px; } /* Imagens ligeiramente menores em tablet */
         }
         @media (max-width: 768px){
             /* HEADER MOBILE - Touch-Friendly */
@@ -149,11 +160,13 @@
             .section-title{font-size:32px;margin-bottom:30px;}
             /* ABOUT, PORTFOLIO, PROCESS - Vídeos Responsivos */
             .about-section,.portfolio-section,.process-section,.differentials-section{padding:60px 15px;}
-            .portfolio-grid,.process-timeline,.differentials-grid{grid-template-columns:repeat(auto-fit,minmax(100%,1fr));gap:25px;margin-top:30px;}
+            .portfolio-grid,.differentials-grid{grid-template-columns:repeat(auto-fit,minmax(100%,1fr));gap:25px;margin-top:30px;}
+            .process-timeline { grid-template-columns: 1fr; gap: 25px; margin-top: 30px; } /* 1x1 em mobile */
             .portfolio-card,.process-step,.differential-card{padding:25px;min-height:auto;}
             /* VÍDEOS CORRIGIDOS - Aspect-Ratio para Sem Distorção */
-            .step-media.video-container,.portfolio-icon.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:8px;display:flex;justify-content:center;align-items:center;background-color:#000;}
+            .step-media.video-container,.portfolio-icon.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:8px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:180px;}
             .step-media.video-container video,.step-media.video-container img,.portfolio-icon.video-container video{width:100%;height:100%;object-fit:cover;border-radius:8px;}
+            .differential-icon { width: 60px; height: 60px; margin-bottom: 15px; } /* Imagens adaptadas para mobile */
             .step-number{font-size:32px;}
             .process-step h3{font-size:16px;}
             .process-step p{font-size:14px;}
@@ -175,7 +188,8 @@
             .hero-subtitle{font-size:16px;}
             .section-title{font-size:28px;}
             .portfolio-grid,.process-timeline{gap:20px;}
-            .step-media.video-container,.portfolio-icon.video-container{aspect-ratio:4/3;}
+            .step-media.video-container,.portfolio-icon.video-container{aspect-ratio:4/3;min-height:160px;}
+            .differential-icon { width: 50px; height: 50px; }
             .contact-form{padding:25px;}
             .form-group input,.form-group textarea{padding:12px;font-size:16px;}
             /* Floating CTA Inovador para Mobile (aplicado ao botão principal) */
@@ -187,7 +201,7 @@
         .portfolio-icon.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;}
         .portfolio-icon.video-container video{width:100%;height:100%;object-fit:cover;border-radius:4px;}
         /* Desktop-specific min-height for process videos */
-        @media (min-width: 1025px){.step-media.video-container{min-height:220px;}} /* min-height: 220px para desktop */
+        @media (min-width: 1025px){.step-media.video-container{min-height:250px;}}
     </style>
 </head>
 <body>
@@ -405,32 +419,44 @@
         <h2 class="section-title" style="color: #fff;">Por Que Escolher <strong>DEVORARE</strong></h2>
         <div class="differentials-grid">
             <div class="differential-card">
-                <div class="differential-icon">🎨</div>
+                <div class="differential-icon">
+                    <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274056/artesanal_n8hxw6.webp" alt="Artesanal 100%">
+                </div>
                 <h3>Artesanal 100%</h3>
                 <p>Cada massa é feita à mão, em pequenos lotes, com atenção obsessiva aos detalhes.</p>
             </div>
             <div class="differential-card">
-                <div class="differential-icon">🌿</div>
+                <div class="differential-icon">
+                    <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274073/ingredientes_vz4lly.webp" alt="Ingredientes Premium">
+                </div>
                 <h3>Ingredientes Premium</h3>
                 <p>Selecionamos apenas os melhores: ovos frescos, trigos nobres, ingredientes orgânicos.</p>
             </div>
             <div class="differential-card">
-                <div class="differential-icon">⚡</div>
+                <div class="differential-icon">
+                    <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274079/prato-fresco_zbcm72.webp" alt="Frescor Garantido">
+                </div>
                 <h3>Frescor Garantido</h3>
                 <p>Sem conservantes. Produzido sob demanda. Entrega rápida para sua mesa.</p>
             </div>
             <div class="differential-card">
-                <div class="differential-icon">👨‍🍳</div>
+                <div class="differential-icon">
+                    <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274085/tecnica-italiana_sf4sfx.webp" alt="Técnica Italiana">
+                </div>
                 <h3>Técnica Italiana</h3>
                 <p>Métodos tradicionais italianos combinados com inovação e criatividade.</p>
             </div>
             <div class="differential-card">
-                <div class="differential-icon">🏆</div>
+                <div class="differential-icon">
+                    <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274048/anvisa_pyjmxe.webp" alt="Qualidade Certificada">
+                </div>
                 <h3>Qualidade Certificada</h3>
                 <p>Padrões internacionais de higiene e qualidade em cada etapa da produção.</p>
             </div>
             <div class="differential-card">
-                <div class="differential-icon">🚚</div>
+                <div class="differential-icon">
+                    <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274063/entrega-agil_fieugk.webp" alt="Entrega Ágil">
+                </div>
                 <h3>Entrega Ágil</h3>
                 <p>Logística eficiente para São Paulo e região. Seu pedido chega fresco.</p>
             </div>
