@@ -86,7 +86,7 @@
         .differential-icon{width:100%; height: auto; aspect-ratio: 16/9; margin: 0 auto 20px auto; overflow: hidden; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-height: 200px; display: flex; justify-content: center; align-items: center; max-width:100%;} /* Min-height reduzido para 200px, max-width reforçado */
         .differential-icon img {width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 8px; max-width:100%;}
         /* Ajustes Específicos para Imagens em Mobile */
-        .adjusted-image-entrega img { object-position: center 20%; } /* Desloca 20% para cima no mobile */
+        .adjusted-image-entrega img { object-position: center 30%; } /* Desloca mais para cima (30%) para centralizar a mulher na Van */
         .adjusted-image-ingredientes img { object-position: center 25%; } /* Desloca ~25% para cima para centralizar ovos/trigo no mobile */
         .differential-card h3{font-size:18px;margin-bottom:15px;color:var(--gold);font-weight:600;}
         .differential-card p{font-size:14px;color:#ddd;line-height:1.6; flex-grow: 1;}
@@ -97,6 +97,8 @@
         /* Container para Mídia nos Steps - Altura Aumentada */
         .step-media.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:200px;max-width:100%;} /* Min-height reduzido para 200px */
         .step-media.video-container video,.step-media.video-container img{width:100%;height:100%;object-fit:cover;border-radius:4px;max-width:100%;}
+        /* Ajuste Específico para Vídeo de Entrega - Desloca para Baixo */
+        .adjusted-video-entrega video { object-position: center 70%; } /* Desloca para baixo (70%) para evitar corte na cabeça do homem */
         .step-number{font-family:'Playfair Display',serif;font-size:36px;color:var(--gold);font-weight:700;margin-bottom:15px;}
         .process-step h3{font-size:16px;color:var(--dark);margin-bottom:10px;font-weight:600;}
         .process-step p{font-size:13px;color:var(--gray);line-height:1.6;}
@@ -133,8 +135,10 @@
             .step-media.video-container, .differential-icon { min-height: 180px; } /* Altura ajustada para evitar expansão desnecessária */
         }
         @media (min-width: 1025px) and (max-width: 1200px) {
-            .process-timeline, .differentials-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-            .step-media.video-container, .differential-icon { min-height: 200px; }
+            .process-timeline, .differentials-grid { grid-template-columns: repeat(3, minmax(320px, 1fr)); gap: 10px; padding: 0 10px; max-width: calc(100% - 20px); }
+            .step-media.video-container, .differential-icon { min-height: 250px; aspect-ratio: 1/1; } /* Aumenta altura para quadrado e mais espaço vertical (evita corte na cabeça) */
+            .differential-card, .process-step { padding: 15px; }
+            .process-step { min-height: 300px; } /* Altura mínima no step para manter proporção quadrada em 3x2 */
         }
         @media (max-width: 1024px) {
             .about-content{grid-template-columns:1fr;gap:40px;}
@@ -173,8 +177,9 @@
             .process-step h3{font-size:16px;}
             .process-step p{font-size:14px;}
             /* Ajustes de Imagem em Mobile - Aplicados Apenas Aqui */
-            .adjusted-image-entrega img { object-position: center 20%; }
+            .adjusted-image-entrega img { object-position: center 30%; } /* Mantém ajuste para cima no mobile também */
             .adjusted-image-ingredientes img { object-position: center 25%; }
+            .adjusted-video-entrega video { object-position: center 70%; } /* Mantém ajuste para baixo no mobile */
             /* CONTACT MOBILE - Formulário Otimizado */
             .contact-content{grid-template-columns:1fr;gap:40px;}
             .contact-form{padding:30px;}
@@ -206,6 +211,111 @@
         .portfolio-icon.video-container video{width:100%;height:100%;object-fit:cover;border-radius:4px;}
         /* Desktop-specific min-height for process videos */
         @media (min-width: 1025px){.step-media.video-container, .differential-icon {min-height:200px;}}
+   
+      /* Ajustes para Evitar Cortes Laterais em Notebooks 15" (3x3 Layout) */
+
+/* Reforço no CSS Base para Grids */
+.differentials-grid, .process-timeline {
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.differential-card, .process-step {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Media Query Existente Ajustada (1025px a 1200px) - Reduz Gap e Adiciona Padding Interno */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .process-timeline, .differentials-grid { 
+        grid-template-columns: repeat(3, minmax(320px, 1fr)); 
+        gap: 10px; 
+        padding: 0 10px; 
+        max-width: calc(100% - 20px); 
+    }
+    .step-media.video-container, .differential-icon { 
+        min-height: 250px; 
+        aspect-ratio: 1/1; 
+    }
+    .differential-card, .process-step { 
+        padding: 15px; 
+    }
+    .process-step { 
+        min-height: 300px; 
+    }
+}
+
+/* Nova Media Query para Resolução 1366px (1201px a 1366px) - Força 3 Colunas com Largura Reduzida dos Cards */
+@media (min-width: 1201px) and (max-width: 1366px) {
+    .process-timeline, .differentials-grid { 
+        grid-template-columns: repeat(3, minmax(300px, 1fr)); 
+        gap: 8px; 
+        justify-content: center;
+        padding: 0 15px; 
+        max-width: calc(100% - 30px); 
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    .differential-card, .process-step { 
+        padding: 15px; 
+        margin: 0; 
+        max-width: 100%;
+        width: 100%; 
+    }
+    .step-media.video-container, .differential-icon { 
+        min-height: 250px; /* Aumenta altura para quadrado e mais espaço vertical (evita corte na cabeça do entregador) */
+        aspect-ratio: 1/1; /* Força proporção quadrada apenas na seção processo em 3 colunas */
+        max-width: 100%;
+        overflow: hidden; 
+        margin-bottom: 10px; 
+    }
+    .differential-card h3, .process-step h3 { font-size: 16px; } 
+    .differential-card p, .process-step p { font-size: 12px; line-height: 1.4; } 
+    .differentials-section, .process-section {
+        overflow-x: hidden; 
+        padding-left: 15px;
+        padding-right: 15px; 
+    }
+    .container {
+        padding-left: 10px;
+        padding-right: 10px; 
+        max-width: 100%; 
+    }
+    .process-step { 
+        min-height: 320px; /* Altura mínima aumentada para manter cards quadrados em 3x2, garantindo espaço para o vídeo sem corte */
+    }
+}
+
+/* Media Query para Notebooks Maiores (1367px a 1440px) - Mantém 3 Colunas, mas Ajusta para Mais Espaço */
+@media (min-width: 1367px) and (max-width: 1440px) {
+    .process-timeline, .differentials-grid { 
+        grid-template-columns: repeat(3, minmax(320px, 1fr)); 
+        gap: 10px; 
+        justify-content: center;
+        padding: 0 15px; 
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .differential-card, .process-step { 
+        padding: 18px; 
+        margin: 0 auto; 
+    }
+    .step-media.video-container, .differential-icon { 
+        min-height: 250px; /* Aumenta altura para quadrado e mais espaço vertical em 3 colunas */
+        aspect-ratio: 1/1; /* Força quadrado na seção processo */
+        max-width: 100%;
+        overflow: hidden; 
+    }
+    .differentials-section, .process-section {
+        overflow-x: hidden; 
+    }
+    .process-step { 
+        min-height: 320px; /* Altura mínima para quadrado em 3x2 */
+    }
+}
+
     </style>
 </head>
 <body>
@@ -533,9 +643,9 @@
                 <h3>Embalagem</h3>
                 <p>Embalagem premium que preserva frescor e qualidade do produto.</p>
             </div>
-            <!-- Step 06: VÍDEO (Substituído) -->
+            <!-- Step 06: VÍDEO (Substituído) - Com Ajuste de Posição -->
             <div class="process-step" id="process-06-entrega">
-                <div class="step-media video-container">
+                <div class="step-media video-container adjusted-video-entrega">
                     <video muted loop playsinline preload="none">
                         <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764968776/6-entrega-otimizado_sx2kgx.mp4" type="video/mp4">
                         Seu navegador não suporta vídeos HTML5.
