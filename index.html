@@ -78,22 +78,25 @@
         .portfolio-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:10px;font-weight:700;}
         .portfolio-card p{font-size:15px;color:var(--gray);line-height:1.6;}
         .portfolio-card .product-count{font-size:13px;color:var(--gold);font-weight:600;margin-top:10px;}
-        /* DIFFERENTIALS SECTION - Refinado: Imagens Maiores e Harmoniosas */
-        .differentials-section{background:linear-gradient(135deg,var(--dark) 0%,var(--green) 100%);color:#fff;padding:80px 20px;}
-        .differentials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-top:50px;}
-        .differential-card{text-align:center;padding:30px;border:1px solid rgba(212,175,55,0.3);border-radius:8px;transition:all 0.3s ease; display: flex; flex-direction: column; align-items: center;}
+        /* DIFFERENTIALS SECTION - Refinado: Imagens Maiores e Harmoniosas (Alinhado com Process Section) */
+        .differentials-section{background:linear-gradient(135deg,var(--dark) 0%,var(--green) 100%);color:#fff;padding:80px 20px;overflow-x:hidden;} /* Adicionado overflow-x:hidden para seção */
+        .differentials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;margin-top:50px;justify-content:center;max-width:100%;overflow:hidden;} /* Base ajustada para minmax 180px e overflow */
+        .differential-card{text-align:center;padding:25px;border:1px solid rgba(212,175,55,0.3);border-radius:8px;transition:all 0.3s ease; display: flex; flex-direction: column; align-items: center; box-shadow:0 5px 20px rgba(0,0,0,0.08); border-top:4px solid var(--gold);max-width:100%;} /* Padding reduzido para 25px */
         .differential-card:hover{background:rgba(212,175,55,0.1);border-color:var(--gold);transform:translateY(-5px);}
-        .differential-icon{width:100%; height: auto; aspect-ratio: 16/9; margin: 0 auto 20px auto; overflow: hidden; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-height: 250px; display: flex; justify-content: center; align-items: center;}
-        .differential-icon img {width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 8px;}
+        .differential-icon{width:100%; height: auto; aspect-ratio: 16/9; margin: 0 auto 20px auto; overflow: hidden; border-radius: 8px; background: rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-height: 200px; display: flex; justify-content: center; align-items: center; max-width:100%;} /* Min-height reduzido para 200px, max-width reforçado */
+        .differential-icon img {width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 8px; max-width:100%;}
+        /* Ajustes Específicos para Imagens em Mobile */
+        .adjusted-image-entrega img { object-position: center 20%; } /* Desloca 20% para cima no mobile */
+        .adjusted-image-ingredientes img { object-position: center 25%; } /* Desloca ~25% para cima para centralizar ovos/trigo no mobile */
         .differential-card h3{font-size:18px;margin-bottom:15px;color:var(--gold);font-weight:600;}
         .differential-card p{font-size:14px;color:#ddd;line-height:1.6; flex-grow: 1;}
         /* PROCESS SECTION - Responsividade Ajustada e Altura Aumentada */
-        .process-section{padding:80px 20px;background:var(--cream);}
-        .process-timeline{display:grid;gap:30px;margin-top:50px;position:relative;overflow: hidden;}
-        .process-step{background:#fff;padding:30px;border-radius:8px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid var(--gold);display:flex;flex-direction:column;align-items:center;position:relative;overflow: hidden;}
+        .process-section{padding:80px 20px;background:var(--cream);overflow-x:hidden;} /* Adicionado overflow-x:hidden para seção */
+        .process-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:50px;position:relative;overflow: hidden;justify-content:center;max-width:100%;} /* Base ajustada para minmax 180px */
+        .process-step{background:#fff;padding:25px;border-radius:8px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid var(--gold);display:flex;flex-direction:column;align-items:center;position:relative;overflow: hidden;max-width:100%;} /* Padding reduzido para 25px */
         /* Container para Mídia nos Steps - Altura Aumentada */
-        .step-media.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:250px;}
-        .step-media.video-container video,.step-media.video-container img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+        .step-media.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:200px;max-width:100%;} /* Min-height reduzido para 200px */
+        .step-media.video-container video,.step-media.video-container img{width:100%;height:100%;object-fit:cover;border-radius:4px;max-width:100%;}
         .step-number{font-family:'Playfair Display',serif;font-size:36px;color:var(--gold);font-weight:700;margin-bottom:15px;}
         .process-step h3{font-size:16px;color:var(--dark);margin-bottom:10px;font-weight:600;}
         .process-step p{font-size:13px;color:var(--gray);line-height:1.6;}
@@ -123,21 +126,20 @@
         footer{background:#0a0a0a;color:#999;padding:40px 20px;text-align:center;font-size:13px;border-top:1px solid rgba(212,175,55,0.2);}
         footer p{margin-bottom:10px;}
         footer strong{color:var(--gold);}
-        /* RESPONSIVIDADE - Ajustes para Process e Differentials */
+        /* RESPONSIVIDADE - Ajustes para Process e Differentials (Alinhados) */
         @media (min-width: 1201px) {
-            .process-timeline { grid-template-columns: repeat(6, 1fr); gap: 20px; } /* 6x1 em telas grandes, sem overflow */
+            .process-timeline, .differentials-grid { grid-template-columns: repeat(6, minmax(160px, 1fr)); gap: 10px; justify-content: center; } /* Minmax 160px + gap 10px para caber perfeitamente */
+            .differential-card, .process-step { padding: 20px; } /* Padding reduzido em desktop grande */
+            .step-media.video-container, .differential-icon { min-height: 180px; } /* Altura ajustada para evitar expansão desnecessária */
         }
         @media (min-width: 1025px) and (max-width: 1200px) {
-            .process-timeline { grid-template-columns: repeat(3, 1fr); gap: 25px; } /* 3x1 em desktop médio */
-            .step-media.video-container { min-height: 250px; } /* Altura desktop */
-            .differential-icon { min-height: 250px; } /* Harmonia com processo */
+            .process-timeline, .differentials-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .step-media.video-container, .differential-icon { min-height: 200px; }
         }
         @media (max-width: 1024px) {
             .about-content{grid-template-columns:1fr;gap:40px;}
-            .process-timeline { grid-template-columns: repeat(2, 1fr); gap: 20px; } /* 2x1 em tablet */
-            .step-media.video-container { min-height: 200px; } /* Altura tablet */
-            .differentials-grid { gap: 30px; }
-            .differential-icon { min-height: 200px; margin-bottom: 15px; } /* Harmonia em tablet */
+            .process-timeline, .differentials-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .step-media.video-container, .differential-icon { min-height: 180px; }
         }
         @media (max-width: 768px){
             /* HEADER MOBILE - Touch-Friendly */
@@ -155,22 +157,24 @@
             body.menu-open{overflow-x:hidden;}
             /* HERO MOBILE - Mais Compacto */
             .hero{min-height:100vh;padding:100px 15px 50px;display:flex;flex-direction:column;justify-content:center;}
-            .hero-logo{position:relative;top:auto;left:auto;width:210px;transform:none;margin:0 auto 20px;z-index:3;} /* Logo 50% maior no mobile */
+            .hero-logo{position:relative;top:auto;left:auto;width:210px;transform:none;margin:0 auto 20px;z-index:3;}
             .hero h1{font-size:40px;margin-bottom:15px;}
             .hero-subtitle{font-size:18px;margin-bottom:30px;}
             .section-title{font-size:32px;margin-bottom:30px;}
             /* ABOUT, PORTFOLIO, PROCESS - Vídeos Responsivos */
             .about-section,.portfolio-section,.process-section,.differentials-section{padding:60px 15px;}
             .portfolio-grid,.differentials-grid{grid-template-columns:repeat(auto-fit,minmax(100%,1fr));gap:25px;margin-top:30px;}
-            .process-timeline { grid-template-columns: 1fr; gap: 25px; margin-top: 30px; } /* 1x1 em mobile */
+            .process-timeline, .differentials-grid { grid-template-columns: 1fr; gap: 25px; margin-top: 30px; }
             .portfolio-card,.process-step,.differential-card{padding:25px;min-height:auto;}
-            /* VÍDEOS CORRIGIDOS - Aspect-Ratio para Sem Distorção */
-            .step-media.video-container,.portfolio-icon.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:8px;display:flex;justify-content:center;align-items:center;background-color:#000;min-height:180px;}
-            .step-media.video-container video,.step-media.video-container img,.portfolio-icon.video-container video{width:100%;height:100%;object-fit:cover;border-radius:8px;}
-            .differential-icon { min-height: 180px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); } /* Harmonia em mobile */
+            /* Cards Quadrados em Mobile para Ambas Seções */
+            .step-media.video-container, .differential-icon { aspect-ratio: 1/1; min-height: 180px; }
+            .step-media.video-container video, .step-media.video-container img, .differential-icon img { object-fit: cover; }
             .step-number{font-size:32px;}
             .process-step h3{font-size:16px;}
             .process-step p{font-size:14px;}
+            /* Ajustes de Imagem em Mobile - Aplicados Apenas Aqui */
+            .adjusted-image-entrega img { object-position: center 20%; }
+            .adjusted-image-ingredientes img { object-position: center 25%; }
             /* CONTACT MOBILE - Formulário Otimizado */
             .contact-content{grid-template-columns:1fr;gap:40px;}
             .contact-form{padding:30px;}
@@ -189,8 +193,7 @@
             .hero-subtitle{font-size:16px;}
             .section-title{font-size:28px;}
             .portfolio-grid,.process-timeline{gap:20px;}
-            .step-media.video-container,.portfolio-icon.video-container{aspect-ratio:4/3;min-height:160px;}
-            .differential-icon { min-height: 160px; margin-bottom: 12px; } /* Harmonia fina em telas pequenas */
+            .step-media.video-container, .differential-icon { aspect-ratio: 1/1; min-height: 160px; }
             .contact-form{padding:25px;}
             .form-group input,.form-group textarea{padding:12px;font-size:16px;}
             /* Floating CTA Inovador para Mobile (aplicado ao botão principal) */
@@ -202,7 +205,7 @@
         .portfolio-icon.video-container{width:100%;height:auto;aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:4px;display:flex;justify-content:center;align-items:center;background-color:#000;}
         .portfolio-icon.video-container video{width:100%;height:100%;object-fit:cover;border-radius:4px;}
         /* Desktop-specific min-height for process videos */
-        @media (min-width: 1025px){.step-media.video-container{min-height:250px;}}
+        @media (min-width: 1025px){.step-media.video-container, .differential-icon {min-height:200px;}}
     </style>
 </head>
 <body>
@@ -426,7 +429,7 @@
                 <h3>Artesanal 100%</h3>
                 <p>Cada massa é feita à mão, em pequenos lotes, com atenção obsessiva aos detalhes.</p>
             </div>
-            <div class="differential-card">
+            <div class="differential-card adjusted-image-ingredientes">
                 <div class="differential-icon">
                     <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274073/ingredientes_vz4lly.webp" alt="Ingredientes Premium">
                 </div>
@@ -454,7 +457,7 @@
                 <h3>Qualidade Certificada</h3>
                 <p>Padrões internacionais de higiene e qualidade em cada etapa da produção.</p>
             </div>
-            <div class="differential-card">
+            <div class="differential-card adjusted-image-entrega">
                 <div class="differential-icon">
                     <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765274063/entrega-agil_fieugk.webp" alt="Entrega Ágil">
                 </div>
@@ -476,7 +479,7 @@
                     <video muted loop playsinline preload="none">
                         <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1764962000/1-selecao-otimizado_trg2f2.mp4" type="video/mp4">
                         Seu navegador não suporta vídeos HTML5.
-                                       </video>
+                    </video>
                 </div>
                 <div class="step-number">01</div>
                 <h3>Seleção</h3>
@@ -646,7 +649,7 @@
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active-mobile-menu');
-        document.body.classList.toggle('menu-open'); // Adiciona classe para overflow control
+        document.body.classList.toggle('menu-open');
     });
 
     navMenu.querySelectorAll('a').forEach(link => {
@@ -741,7 +744,7 @@
     if (window.innerWidth <= 768) {
         document.querySelectorAll('video').forEach(video => {
             video.loading = 'lazy';
-            video.preload = 'none'; // Carrega só no scroll
+            video.preload = 'none';
         });
     }
 
@@ -762,9 +765,8 @@
         const currentSource = videoElement.querySelector('source');
         if (currentSource && currentSource.src !== videoUrl) {
             currentSource.src = videoUrl;
-            videoElement.load(); // Recarrega o vídeo com a nova fonte
+            videoElement.load();
         } else if (!currentSource) {
-             // Se não houver source, adiciona
             const newSource = document.createElement('source');
             newSource.src = videoUrl;
             newSource.type = 'video/mp4';
@@ -773,9 +775,9 @@
         }
 
         const observerOptions = {
-            root: null, // viewport as the root
+            root: null,
             rootMargin: '0px',
-            threshold: window.innerWidth <= 768 ? 0.3 : 0.5 // 30% em mobile para performance
+            threshold: window.innerWidth <= 768 ? 0.3 : 0.5
         };
 
         const observer = new IntersectionObserver((entries) => {
